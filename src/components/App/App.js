@@ -1,25 +1,35 @@
-
-import './App.css';
-
+import React, { Component } from "react"
+import AllMovies from "../AllMovies/AllMovies"
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// class App extends Component {
+	// constructor(props) {
+	// 	super(props)
+	// 	this.state = {
+	// 		movieCards: [],
+	// 		error: ''
+	// 	}
+	// }
+
+	// componentDidMount() {
+	// 	fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+	// 		.then((response) => response.json())
+	// 		.then((data) => {
+	// 			console.log('data', data)
+	// 			this.setState({movieCards: [...data.movies]})
+	// 		})
+	// 		.catch(error => {
+	// 			this.setState(({error: error}))
+	// 		})
+	// }
+
+	// render() {
+		return (
+			<main>
+				<h1>Rancid Tomatillos</h1>
+				<AllMovies />
+			</main>
+		)
+	// }
 }
 
-export default App;
+export default App
