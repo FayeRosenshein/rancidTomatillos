@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import MovieCard from '../MovieCard/MovieCard'
+import Card from '../MovieCard/MovieCard'
 
 class App extends Component {
 	constructor() {
@@ -8,12 +8,12 @@ class App extends Component {
 			movieCard: []
 		}
 	}
+
 	render() {
 		return (
 			<main>
 				<h1>Rancid Tomatillos</h1>
-				<Header />
-				<MovieCard />
+				<Card />
 			</main>
 		)
 	}
