@@ -1,12 +1,18 @@
-import React from "react"
+import React from 'react';
 
-const Card = ({id, title, backdrop_path}) => {
-	return (
-		<div className='card'>
-			<img src={backdrop_path} alt={title}/>
-			<p>{title}</p>
-		</div>
-	)
+// import fetchData from '../../ApiCalls';
+import './MovieCard.css';
+
+export default function MovieCard(props) {
+console.log("card", props)
+  
+    return (
+      <div className='movie-card'>
+      <img src={props.image} alt={props.title} width={150} />
+      <p>{props.title}</p>
+    </div>
+    )
+  
+
+ 
 }
-
-export default Card
