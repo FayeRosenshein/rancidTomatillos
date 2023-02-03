@@ -18,7 +18,7 @@ function App() {
   // }, [])
   // console.log(allMovies)
   return (
-    <main>
+    <main className="App">
       <Header />
       <Top5 />
       <AllMovies allMovieInfo= {movies}/>

@@ -7,8 +7,8 @@ export default function MovieCard(props) {
 console.log("card", props)
   
     return (
-      <div >
-      <img src={props.image} alt={props.title}/>
+      <div className='movie-card'>
+      <img src={props.image} alt={props.title} width={150} />
       <p>{props.title}</p>
     </div>
     )
