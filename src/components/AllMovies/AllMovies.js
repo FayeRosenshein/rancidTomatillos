@@ -5,23 +5,23 @@ import movies from "../../movieData";
 import './AllMovies.css';
 
 export default function AllMovies() {
-  
-  const moviesCards = movies.map(movie => {
-    console.log(movie)
-   return (
-   <MovieCard 
-   image={movie.backdrop_path}
-   title={movie.title}
-   />
-   ) 
-  })
 
-  return (
-    <section>
-      <p>All Movies</p>
-      <div>
-        {moviesCards}
-      </div>
-    </section>
-  )
+	const moviesCards = movies.map(movie => {
+		console.log(movie)
+		return (
+			<MovieCard
+				image={movie.backdrop_path}
+				title={movie.title}
+			/>
+		)
+	})
+
+	return (
+		<section>
+			<p>All Movies</p>
+			<div className='movie-container'>
+				{moviesCards}
+			</div>
+		</section>
+	)
 }
