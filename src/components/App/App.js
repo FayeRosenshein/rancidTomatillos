@@ -2,10 +2,9 @@ import React from "react"
 import Header from "../Header/Header";
 import Top5 from "../Top5/Top5";
 import AllMovies from "../AllMovies/AllMovies";
-import movies from "../../movieData";
+import MovieInfo from "../MovieInfo/MovieInfo";
 import { fetchAllMovies, fetchSingleMovie } from "../../ApiCalls";
 import './App.css';
-import MovieInfo from "../MovieInfo/MovieInfo";
 
 export default function App() {
   const [allMovies, setAllMovies] = React.useState([])
@@ -26,7 +25,7 @@ export default function App() {
   return (
     <main className="App">
       <Header />
-      <Top5 />
+      <Top5 allMovieInfo={allMovies}/>
       <AllMovies allMovieInfo= {allMovies}/>
       <MovieInfo singleMovie={singleMovie}/>
     </main>

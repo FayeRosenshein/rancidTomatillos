@@ -4,9 +4,9 @@ import movies from '../../movieData';
 import MovieCard from "../MovieCard/MovieCard";
 import MovieInfo from "../MovieInfo/MovieInfo";
 
-export default function Top5() {
-	let moviesCopy = [...movies]
-	const sortedMovies = moviesCopy.sort((a, b) => {
+export default function Top5({allMovieInfo}) {
+	
+	const sortedMovies = allMovieInfo.sort((a, b) => {
 		return b.average_rating - a.average_rating
 	})
 	console.log('sortedMovies', sortedMovies)
