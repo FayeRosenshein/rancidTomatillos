@@ -1,15 +1,15 @@
 import React from 'react';
 import MovieCard from "../MovieCard/MovieCard";
-import MovieInfo from "../MovieInfo/MovieInfo";
-import movies from "../../movieData";
 import './AllMovies.css';
 
-export default function AllMovies() {
+export default function AllMovies(props) {
 
-	const moviesCards = movies.map(movie => {
-		console.log(movie)
+console.log("allmovieprops", props.allMovieInfo)
+	const moviesCards = props.allMovieInfo.map(movie => {
 		return (
 			<MovieCard
+				key={movie.id}
+				id={movie.id}
 				image={movie.backdrop_path}
 				title={movie.title}
 			/>

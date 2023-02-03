@@ -3,27 +3,34 @@ import Header from "../Header/Header";
 import Top5 from "../Top5/Top5";
 import AllMovies from "../AllMovies/AllMovies";
 import movies from "../../movieData";
+import { fetchAllMovies, fetchSingleMovie } from "../../ApiCalls";
 import './App.css';
+import MovieInfo from "../MovieInfo/MovieInfo";
 
-function App() {
-  // const [movies, setMovies] = React.useState(movies)
-  // console.log(movies)
-  // const [allMovies, setAllMovies] = React.useState()
+export default function App() {
+  const [allMovies, setAllMovies] = React.useState([])
+  const [singleMovie, setSingleMovie] = React.useState({})
 
-  // React.useEffect(() => {
-  //   fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-  //   .then(response => response.json())
-  //   .then(data => setAllMovies(data.movies))
-  //   .catch(err => console.log(err))
-  // }, [])
-  // console.log(allMovies)
+  React.useEffect(() => {
+    fetchAllMovies()
+    .then(data => setAllMovies(data.movies))
+    .catch(error => console.log("error1", error))
+  }, [])
+
+  React.useEffect(() => {
+    fetchSingleMovie(924482)
+    .then(data => setSingleMovie(data.movie))
+    .catch(error => console.log("error2", error))
+  }, [])
+
   return (
     <main className="App">
       <Header />
       <Top5 />
-      <AllMovies allMovieInfo= {movies}/>
+      <AllMovies allMovieInfo= {allMovies}/>
+      <MovieInfo singleMovie={singleMovie}/>
     </main>
   );
 }
 
-export default App;
+
