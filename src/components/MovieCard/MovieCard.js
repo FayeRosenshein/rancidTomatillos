@@ -3,9 +3,6 @@ import './MovieCard.css';
 
 export default function MovieCard({ id, image, title, setMovieId }) {
 
- 
-
-
 
   function handleClick() {
     setMovieId(id)

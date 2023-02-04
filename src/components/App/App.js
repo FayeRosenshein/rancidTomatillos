@@ -25,9 +25,9 @@ export default function App() {
 
   return (
     <main className="App">
-      <Header setSingleMovie={setSingleMovie}/>
-      <Top5 allMovieInfo={allMovies} />
+      <Header />
       {singleMovie && <MovieInfo singleMovie={singleMovie} setSingleMovie={setSingleMovie}/>}
+      {!singleMovie && <Top5 allMovieInfo={allMovies} setMovieId={setMovieId} />}
       {!singleMovie && <AllMovies allMovieInfo= {allMovies} setMovieId={setMovieId} />}
     </main>
   );

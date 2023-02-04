@@ -5,8 +5,6 @@ import './AllMovies.css';
 export default function AllMovies({allMovieInfo, setMovieId}) {
 
 
-
-
 console.log('AllMoviesprops', allMovieInfo)
 	const moviesCards = allMovieInfo.map(movie => {
 		return (
@@ -14,6 +12,7 @@ console.log('AllMoviesprops', allMovieInfo)
 				key={movie.id}
 				id={movie.id}
 				image={movie.backdrop_path}
+				rating={movie.average_rating}
 				title={movie.title}
 				setMovieId={setMovieId}
 			/>

@@ -2,7 +2,7 @@ import React from 'react';
 import MovieCard from "../MovieCard/MovieCard";
 import './Top5.css'
 
-export default function Top5({allMovieInfo}) {
+export default function Top5({allMovieInfo, setMovieId}) {
 	
 	const sortedMovies = allMovieInfo.sort((a, b) => {
 		return b.average_rating - a.average_rating
@@ -14,7 +14,9 @@ export default function Top5({allMovieInfo}) {
 				key={movie.id}
 				id={movie.id}
 				image={movie.backdrop_path}
+				rating={movie.average_rating}
 				title={movie.title}
+				setMovieId={setMovieId}
 			/>
 		)
 	})
