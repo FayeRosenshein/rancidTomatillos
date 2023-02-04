@@ -4,6 +4,7 @@ import './MovieInfo.css'
 export default function MovieInfo({singleMovie}) {
 
 
+
   return (
     <section>
       <img src={singleMovie.poster_path}alt={singleMovie.title}/>

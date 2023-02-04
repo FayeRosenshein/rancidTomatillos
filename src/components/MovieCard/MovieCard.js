@@ -1,13 +1,20 @@
 import React from 'react';
 import './MovieCard.css';
 
-export default function MovieCard(props) {
-// console.log("card", props)
+export default function MovieCard({ id, image, title, setMovieId }) {
+
+ 
+
+
+
+  function handleClick() {
+    setMovieId(id)
+  }
   
     return (
-      <div id={props.id} className='movie-card'>
-        <img src={props.image} alt={props.title} width={150} />
-        <p>{props.title}</p>
+      <div onClick={handleClick} id={id} className='movie-card'>
+        <img src={image} alt={title} width={150} />
+        <p>{title}</p>
       </div>
     )
   

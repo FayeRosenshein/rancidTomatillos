@@ -1,18 +1,18 @@
 import React from 'react';
-import './Top5.css'
-import movies from '../../movieData';
 import MovieCard from "../MovieCard/MovieCard";
-import MovieInfo from "../MovieInfo/MovieInfo";
+import './Top5.css'
 
 export default function Top5({allMovieInfo}) {
 	
 	const sortedMovies = allMovieInfo.sort((a, b) => {
 		return b.average_rating - a.average_rating
 	})
-	console.log('sortedMovies', sortedMovies)
+	
 	const topFive = sortedMovies.map(movie => {
 		return (
 			<MovieCard
+				key={movie.id}
+				id={movie.id}
 				image={movie.backdrop_path}
 				title={movie.title}
 			/>

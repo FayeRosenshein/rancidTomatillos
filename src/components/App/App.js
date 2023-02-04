@@ -8,6 +8,7 @@ import './App.css';
 
 export default function App() {
   const [allMovies, setAllMovies] = React.useState([])
+  const [movieId, setMovieId] = React.useState('')
   const [singleMovie, setSingleMovie] = React.useState({})
 
   React.useEffect(() => {
@@ -17,17 +18,17 @@ export default function App() {
   }, [])
 
   React.useEffect(() => {
-    fetchSingleMovie(924482)
+    fetchSingleMovie(movieId)
     .then(data => setSingleMovie(data.movie))
     .catch(error => console.log("error2", error))
-  }, [])
+  }, [movieId])
 
   return (
     <main className="App">
       <Header />
-      <Top5 allMovieInfo={allMovies}/>
-      <AllMovies allMovieInfo= {allMovies}/>
-      <MovieInfo singleMovie={singleMovie}/>
+      <Top5 allMovieInfo={allMovies} />
+      {singleMovie && <MovieInfo singleMovie={singleMovie} setSingleMovie={setSingleMovie}/>}
+      {!singleMovie && <AllMovies allMovieInfo= {allMovies} setMovieId={setMovieId} />}
     </main>
   );
 }
