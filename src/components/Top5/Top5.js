@@ -3,8 +3,8 @@ import MovieCard from "../MovieCard/MovieCard";
 import './Top5.css'
 
 export default function Top5({allMovieInfo, setMovieId}) {
-	
-	const sortedMovies = allMovieInfo.sort((a, b) => {
+	let moviesCopy = [...allMovieInfo]
+	const sortedMovies = moviesCopy.sort((a, b) => {
 		return b.average_rating - a.average_rating
 	})
 	
