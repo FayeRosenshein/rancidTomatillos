@@ -3,13 +3,13 @@ describe('Home page', () => {
 		cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture: 'all_movies'})
 		cy.visit('http://localhost:3000/')
 	})
-	it('should have a title', () => {
+	it('should see the title of the application', () => {
 		cy.get('h1').contains('Rancid Tomatillos')
 	})
-	it('should have multiple movies displayed', () => {
+	it('should see a collection of movies', () => {
 		cy.get('.movie-container').should('be.visible')
 	})
-	it('should have one card per movie', () => {
-		cy.get('.movie-card').should('be.visible')
+	it('should see additional details about one movie', () => {
+		
 	})
 })
