@@ -30,7 +30,7 @@ export default function App() {
 			<Routes>
 				{/* <Route path='/' element={!singleMovie && <Top5 allMovieInfo={allMovies} setMovieId={setMovieId} />} /> */}
 				<Route path='/' element={<><Top5 allMovieInfo={allMovies} setMovieId={setMovieId} /><AllMovies allMovieInfo={allMovies} setMovieId={setMovieId} /></>} />
-				<Route path='/:Id' element={<MovieInfo singleMovie={singleMovie} setSingleMovie={setSingleMovie} />} />
+				<Route path='/:Id' element={singleMovie && <MovieInfo singleMovie={singleMovie} setSingleMovie={setSingleMovie} />} />
 				{/* <Route path="*" element={<NotFound/>}/> */}
 			</Routes>
 			{/* {singleMovie && <MovieInfo singleMovie={singleMovie} setSingleMovie={setSingleMovie}/>} */}
