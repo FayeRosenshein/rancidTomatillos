@@ -1,15 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './MovieInfo.css'
 
 export default function MovieInfo({singleMovie, setSingleMovie}) {
-
-  function handleClick() {
-    setSingleMovie('')
-  }
+	const navigate = useNavigate()
+  // function handleClick() {
+  //   setSingleMovie('')
+  // }
 
   return (
     <section>
-      <button onClick={handleClick}>Home</button>
+      <button onClick={() => navigate("/")}>Home</button>
       <img src={singleMovie.poster_path}alt={singleMovie.title}/>
       <p>{singleMovie.title}</p>
       <p>{singleMovie.release_date}</p>

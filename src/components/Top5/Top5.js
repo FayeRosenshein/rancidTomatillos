@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieCard from "../MovieCard/MovieCard";
 import './Top5.css'
+import { Link } from 'react-router-dom';
 
 export default function Top5({allMovieInfo, setMovieId}) {
 	let moviesCopy = [...allMovieInfo]
@@ -10,6 +11,7 @@ export default function Top5({allMovieInfo, setMovieId}) {
 	
 	const topFive = sortedMovies.map(movie => {
 		return (
+			<Link to={`/${movie.id}`}>
 			<MovieCard
 				key={movie.id}
 				id={movie.id}
@@ -18,6 +20,7 @@ export default function Top5({allMovieInfo, setMovieId}) {
 				title={movie.title}
 				setMovieId={setMovieId}
 			/>
+			</Link>
 		)
 	})
 
