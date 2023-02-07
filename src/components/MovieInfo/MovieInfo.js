@@ -8,7 +8,7 @@ export default function MovieInfo({singleMovie, setSingleMovie}) {
   }
 
   return (
-    <section>
+    <section className='single-movie-info'>
       <button onClick={handleClick}>Home</button>
       <img src={singleMovie.poster_path}alt={singleMovie.title}/>
       <p>{singleMovie.title}</p>
