@@ -9,7 +9,7 @@ export default function MovieInfo({ singleMovie, setSingleMovie }) {
 	// }
 
 	return (
-		<section>
+		<section className='single-movie-info'>
 			<button onClick={() => navigate("/")}>Home</button>
 			<img src={singleMovie.poster_path} alt={singleMovie.title} width={300} />
 			<p>{singleMovie.title}</p>

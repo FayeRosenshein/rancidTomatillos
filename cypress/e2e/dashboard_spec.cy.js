@@ -9,7 +9,4 @@ describe('Home page', () => {
 	it('should see a collection of movies', () => {
 		cy.get('.movie-container').should('be.visible')
 	})
-	it('should see additional details about one movie', () => {
-		
-	})
 })
