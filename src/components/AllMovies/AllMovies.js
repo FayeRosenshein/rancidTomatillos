@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieCard from "../MovieCard/MovieCard";
 import './AllMovies.css';
+import { Link } from 'react-router-dom';
 
 export default function AllMovies({allMovieInfo, setMovieId}) {
 
@@ -8,6 +9,7 @@ export default function AllMovies({allMovieInfo, setMovieId}) {
 console.log('AllMoviesprops', allMovieInfo)
 	const moviesCards = allMovieInfo.map(movie => {
 		return (
+			<Link to={`/${movie.id}`}>
 			<MovieCard
 				key={movie.id}
 				id={movie.id}
@@ -16,6 +18,7 @@ console.log('AllMoviesprops', allMovieInfo)
 				title={movie.title}
 				setMovieId={setMovieId}
 			/>
+			</Link>
 		)
 	})
 
