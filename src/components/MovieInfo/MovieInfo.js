@@ -4,20 +4,18 @@ import { fetchSingleMovie } from '../../ApiCalls';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import './MovieInfo.css'
 
-export default function MovieInfo({ setIsLoading }) {
+export default function MovieInfo({ setIsLoading, setError }) {
 	const [singleMovie, setSingleMovie] = React.useState({})
 	const navigate = useNavigate()
-	// function handleClick() {
-	//   setSingleMovie('')
-	// }
+
 	let { id } = useParams();
-console.log('id', id)
+
 	React.useEffect(() => {
 		setIsLoading(true)
 		fetchSingleMovie(id)
 			.then(data => setSingleMovie(data.movie))
 			.catch(error => {
-				
+				setError(error)
 			})
 			.finally(() => setIsLoading(false))
 	}, [id])

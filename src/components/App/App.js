@@ -12,33 +12,31 @@ export default function App() {
 	const [allMovies, setAllMovies] = React.useState([])
 	const [isLoading, setIsLoading] = React.useState(false)
 	const [error, setError] = React.useState()
-	// const [movieId, setMovieId] = React.useState('')
-	// const [singleMovie, setSingleMovie] = React.useState({})
 
 	React.useEffect(() => {
 		setIsLoading(true)
 		fetchAllMovies()
 			.then(data => setAllMovies(data.movies))
 			.catch(error => {
-				
+				setError(error)
 			})
 			.finally(() => setIsLoading(false))
 	}, [])
-
-	// React.useEffect(() => {
-	// 	fetchSingleMovie(movieId)
-	// 		.then(data => setSingleMovie(data.movie))
-	// 		.catch(error => console.log("error2", error))
-	// }, [movieId])
 
 	return (
 		<main className="App">
 			<Header />
 			<Routes>
-			
-				<Route exact path="/" element={<><Top5 allMovieInfo={allMovies} /><AllMovies allMovieInfo={allMovies} /></>} />
-				<Route path="/:id" element={<MovieInfo setIsLoading={setIsLoading}/>} />
-				<Route path="*" element={<ErrorPage/>}/>
+				<Route exact path="/" element={<>
+				<Top5 allMovieInfo={allMovies} />
+				<AllMovies allMovieInfo={allMovies} />
+				{error && <ErrorPage />}
+				</>} />
+				<Route path="/:id" element={<>
+				<MovieInfo setIsLoading={setIsLoading} setError={setError}/>
+				{error && <ErrorPage />}
+				</>} />
+				<Route path="*" element={<ErrorPage/>} />
 			</Routes>
 		</main>
 	);
