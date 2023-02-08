@@ -1,12 +1,26 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { fetchSingleMovie } from '../../ApiCalls';
+import ErrorPage from '../ErrorPage/ErrorPage';
 import './MovieInfo.css'
 
-export default function MovieInfo({ singleMovie, setSingleMovie }) {
+export default function MovieInfo({ setIsLoading }) {
+	const [singleMovie, setSingleMovie] = React.useState({})
 	const navigate = useNavigate()
 	// function handleClick() {
 	//   setSingleMovie('')
 	// }
+	let { id } = useParams();
+console.log('id', id)
+	React.useEffect(() => {
+		setIsLoading(true)
+		fetchSingleMovie(id)
+			.then(data => setSingleMovie(data.movie))
+			.catch(error => {
+				
+			})
+			.finally(() => setIsLoading(false))
+	}, [id])
 
 	return (
 		<section>
