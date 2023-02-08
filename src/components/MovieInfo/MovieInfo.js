@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { fetchSingleMovie } from '../../ApiCalls';
-import ErrorPage from '../ErrorPage/ErrorPage';
 import './MovieInfo.css'
 
 export default function MovieInfo({ setIsLoading, setError }) {
