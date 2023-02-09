@@ -3,39 +3,42 @@ import Header from "../Header/Header";
 import Top5 from "../Top5/Top5";
 import AllMovies from "../AllMovies/AllMovies";
 import MovieInfo from "../MovieInfo/MovieInfo";
-import { fetchAllMovies, fetchSingleMovie } from "../../ApiCalls";
+import { fetchAllMovies } from "../../ApiCalls";
 import './App.css';
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, redirect } from "react-router-dom"
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 export default function App() {
 	const [allMovies, setAllMovies] = React.useState([])
-	const [movieId, setMovieId] = React.useState('')
-	const [singleMovie, setSingleMovie] = React.useState({})
+	const [isLoading, setIsLoading] = React.useState(false)
+	const [error, setError] = React.useState(null)
 
 	React.useEffect(() => {
+		setIsLoading(true)
 		fetchAllMovies()
 			.then(data => setAllMovies(data.movies))
-			.catch(error => console.log("error1", error))
+			.catch(error => {
+				setError(error)
+			})
+			.finally(() => setIsLoading(false))
 	}, [])
-
-	React.useEffect(() => {
-		fetchSingleMovie(movieId)
-			.then(data => setSingleMovie(data.movie))
-			.catch(error => console.log("error2", error))
-	}, [movieId])
 
 	return (
 		<main className="App">
 			<Header />
 			<Routes>
-				{/* <Route path='/' element={!singleMovie && <Top5 allMovieInfo={allMovies} setMovieId={setMovieId} />} /> */}
-				<Route path='/' element={<><Top5 allMovieInfo={allMovies} setMovieId={setMovieId} /><AllMovies allMovieInfo={allMovies} setMovieId={setMovieId} /></>} />
-				<Route path='/:Id' element={singleMovie && <MovieInfo singleMovie={singleMovie} setSingleMovie={setSingleMovie} />} />
-				{/* <Route path="*" element={<NotFound/>}/> */}
+				<Route path="/" element={<>
+					<Top5 allMovieInfo={allMovies} />
+					<AllMovies allMovieInfo={allMovies} />
+					{isLoading && <h1>loading...</h1>}
+				</>} />
+				<Route path="/:id" element={<>
+					<MovieInfo setIsLoading={setIsLoading}/>
+					{isLoading && <h1>loading...</h1>}
+				</>} />
+				<Route path="/error" element={<ErrorPage />} />
+				<Route path="*" element={<ErrorPage />} />
 			</Routes>
-			{/* {singleMovie && <MovieInfo singleMovie={singleMovie} setSingleMovie={setSingleMovie}/>} */}
-			{/* {!singleMovie && <Top5 allMovieInfo={allMovies} setMovieId={setMovieId} />} */}
-			{/* {!singleMovie && <AllMovies allMovieInfo= {allMovies} setMovieId={setMovieId} />} */}
 		</main>
 	);
 }

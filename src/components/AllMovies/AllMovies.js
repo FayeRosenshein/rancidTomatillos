@@ -9,15 +9,15 @@ export default function AllMovies({allMovieInfo, setMovieId}) {
 console.log('AllMoviesprops', allMovieInfo)
 	const moviesCards = allMovieInfo.map(movie => {
 		return (
-			<Link to={`/${movie.id}`}>
-			<MovieCard
-				key={movie.id}
-				id={movie.id}
-				image={movie.backdrop_path}
-				rating={movie.average_rating}
-				title={movie.title}
-				setMovieId={setMovieId}
-			/>
+			<Link to={`/${movie.id}`} key={movie.title}>
+				<MovieCard
+					key={movie.id}
+					id={movie.id}
+					image={movie.backdrop_path}
+					rating={movie.average_rating}
+					title={movie.title}
+					setMovieId={setMovieId}
+				/>
 			</Link>
 		)
 	})
