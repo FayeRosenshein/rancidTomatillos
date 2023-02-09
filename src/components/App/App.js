@@ -30,12 +30,14 @@ export default function App() {
 				<Route path="/" element={<>
 					<Top5 allMovieInfo={allMovies} />
 					<AllMovies allMovieInfo={allMovies} />
-					{error && <ErrorPage />}
+					{isLoading && <h1>loading...</h1>}
 				</>} />
 				<Route path="/:id" element={<>
 					<MovieInfo setIsLoading={setIsLoading}/>
+					{isLoading && <h1>loading...</h1>}
 				</>} />
 				<Route path="/error" element={<ErrorPage />} />
+				<Route path="*" element={<ErrorPage />} />
 			</Routes>
 		</main>
 	);
