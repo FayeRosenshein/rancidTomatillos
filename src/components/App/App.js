@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import Top5 from "../Top5/Top5";
 import AllMovies from "../AllMovies/AllMovies";
 import MovieInfo from "../MovieInfo/MovieInfo";
+import SearchBar from "../SearchBar/SearchBar";
 import { fetchAllMovies } from "../../ApiCalls";
 import './App.css';
 import { Route, Routes, redirect } from "react-router-dom"
@@ -26,6 +27,7 @@ export default function App() {
 	return (
 		<main className="App">
 			<Header />
+			<SearchBar />
 			<Routes>
 				<Route path="/" element={<>
 					<Top5 allMovieInfo={allMovies} />
