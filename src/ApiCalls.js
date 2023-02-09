@@ -9,9 +9,9 @@ const fetchSingleMovie = (id) => {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error(response.status)
+        window.location.assign('http://localhost:3000/error')
       }
-      
+
     })
 }
 

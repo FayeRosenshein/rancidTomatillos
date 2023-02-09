@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { redirect, useNavigate, useParams } from 'react-router-dom';
 import { fetchSingleMovie } from '../../ApiCalls';
 import './MovieInfo.css'
 
