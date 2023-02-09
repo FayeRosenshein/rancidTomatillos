@@ -1,7 +1,7 @@
 import React from 'react';
 import './MovieCard.css';
 
-export default function MovieCard({ id, image, title, setMovieId }) {
+export default function MovieCard({ id, image, title}) {
 
 
   // function handleClick(id) {
