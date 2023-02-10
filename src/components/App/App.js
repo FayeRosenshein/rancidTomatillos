@@ -5,13 +5,13 @@ import AllMovies from "../AllMovies/AllMovies";
 import MovieInfo from "../MovieInfo/MovieInfo";
 import { fetchAllMovies } from "../../ApiCalls";
 import './App.css';
-import { Route, Routes, redirect } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import ErrorPage from "../ErrorPage/ErrorPage";
 
 export default function App() {
 	const [allMovies, setAllMovies] = React.useState([])
 	const [isLoading, setIsLoading] = React.useState(false)
-	const [error, setError] = React.useState(null)
+	const [, setError] = React.useState({})
 
 	React.useEffect(() => {
 		setIsLoading(true)

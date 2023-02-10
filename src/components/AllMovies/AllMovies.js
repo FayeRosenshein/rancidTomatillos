@@ -6,11 +6,9 @@ import { Link } from 'react-router-dom';
 
 export default function AllMovies({allMovieInfo, setMovieId}) {
 	const [searchInput, setSearchInput] = React.useState('')
-	let filteredMovies = allMovieInfo.filter(movie => {
-		console.log(movie.title.match(searchInput))
-		return movie.title.toLowerCase().match(searchInput.toLowerCase())})
+	
+	const filteredMovies = allMovieInfo.filter(movie => movie.title.toLowerCase().match(searchInput.toLowerCase()))
 
-// console.log('AllMoviesprops', allMovieInfo)
 	const moviesCards = allMovieInfo.map(movie => {
 		return (
 			<Link to={`/${movie.id}`} key={movie.title}>
@@ -25,6 +23,7 @@ export default function AllMovies({allMovieInfo, setMovieId}) {
 			</Link>
 		)
 	})
+
 	const moviesFiltered = filteredMovies.map(movie => {
 		return (
 			<Link to={`/${movie.id}`} key={movie.title}>
@@ -39,6 +38,7 @@ export default function AllMovies({allMovieInfo, setMovieId}) {
 			</Link>
 		)
 	})
+
 	return (
 		<section>
 			<p>All Movies</p>
