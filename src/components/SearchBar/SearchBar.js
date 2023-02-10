@@ -1,14 +1,14 @@
 import React from 'react'
 
+
+
 export default function SearchBar({ searchInput, setSearchInput }) {
 	
+	const handleChange = (e) => setSearchInput(e.target.value)
 
-	const handleChange = (e) => {
-		// e.preventDefault()
-		setSearchInput(e.target.value)
-	}
+
 	return (
-		<div>
+		<div className='search-bar'>
 			<input
 				type='text'
 				placeholder='Search Here'

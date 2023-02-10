@@ -11,7 +11,6 @@ const fetchSingleMovie = (id) => {
       } else {
         window.location.assign('http://localhost:3000/error')
       }
-
     })
 }
 
