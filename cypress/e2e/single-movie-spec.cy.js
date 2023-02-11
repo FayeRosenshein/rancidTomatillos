@@ -10,16 +10,16 @@ describe('Home page', () => {
 	});
 	
 	it('should display a move poster', () => {
-		cy.get('img')
+		cy.get('.movie-info-img')
 			.should('be.visible')
 	});
 	
 	it('should see additional details about one movie', () => {
-		cy.get('.single-movie-info ')
+		cy.get('.single-movie-section')
 	});
 	
 	it('should have a home button to return to the main view of all movies', () => {
-		cy.get('.single-movie-info > button')
+		cy.get('.movie-details > button')
 			.should('have.text', 'Home')
 	});
 
