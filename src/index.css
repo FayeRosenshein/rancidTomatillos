@@ -1,6 +1,8 @@
 body {
   font-family: 'Bebas Neue', cursive;
   margin: 0;
+  height: 100vh;
+  background-color: black;
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
 }
@@ -9,3 +11,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+

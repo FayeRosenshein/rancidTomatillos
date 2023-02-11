@@ -1,18 +1,19 @@
 .error-message {
-  font-size: xx-large
+  font-size: xx-large;
+
 }
 
 .error-home-button {
-  min-width: 6.25em;
+  min-width: 100px;
   text-align: center;
-  padding: 0;
-  color: #f0f3f5;
-  border: none;
-  border-radius: 0.5em;
-  margin-right: 0.9375em;
-  background-color: #0174C2;
-  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  color: #505c66;
+  border: 1px solid black;
+  border-radius: 20px;
   width: 150px;  
-  height: 40px;
+  height: 30px;
   cursor: pointer;
+}
+
+.error-page {
+  margin-top: 100px;;
 }

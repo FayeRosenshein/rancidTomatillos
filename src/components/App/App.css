@@ -8,3 +8,10 @@
 	background-color: black;
 	color: red;
 }
+
+
+html {
+  margin: 0;
+  height: 100vh;
+  background-color: black;
+}
