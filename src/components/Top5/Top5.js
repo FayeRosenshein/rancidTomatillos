@@ -11,7 +11,7 @@ export default function Top5({allMovieInfo, setMovieId}) {
 	
 	const topFive = sortedMovies.map(movie => {
 		return (
-			<Link to={`/${movie.id}`}>
+			<Link to={`/${movie.id}`} style={{ textDecoration: 'none' }}>
 			<MovieCard
 				key={movie.id}
 				id={movie.id}
@@ -25,8 +25,9 @@ export default function Top5({allMovieInfo, setMovieId}) {
 	})
 
 	return (
-		<section className="top-five">TOP 5 MOVIES
-			<div className='top-5-label'>
+		<section className="top-five">
+			<h2 className='top-5-title' >TOP 5 MOVIES</h2>
+			<div className='top-5-container'>
 				{topFive[0]}
 				{topFive[1]}
 				{topFive[2]}

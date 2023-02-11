@@ -13,9 +13,7 @@ export default function MovieInfo({ setIsLoading, setError }) {
 		setIsLoading(true)
 		fetchSingleMovie(id)
 			.then(data => setSingleMovie(data.movie))
-			.catch(error => {
-				setError(error)
-			})
+			.catch(error => setError(error))
 			.finally(() => setIsLoading(false))
 			// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [id])

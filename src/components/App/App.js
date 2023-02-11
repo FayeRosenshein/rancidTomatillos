@@ -1,25 +1,24 @@
 import React from "react"
+import { Route, Routes } from "react-router-dom"
+import { fetchAllMovies } from "../../ApiCalls";
 import Header from "../Header/Header";
 import Top5 from "../Top5/Top5";
 import AllMovies from "../AllMovies/AllMovies";
 import MovieInfo from "../MovieInfo/MovieInfo";
-import { fetchAllMovies } from "../../ApiCalls";
-import './App.css';
-import { Route, Routes } from "react-router-dom"
 import ErrorPage from "../ErrorPage/ErrorPage";
+import './App.css';
 
 export default function App() {
 	const [allMovies, setAllMovies] = React.useState([])
 	const [isLoading, setIsLoading] = React.useState(false)
-	const [, setError] = React.useState({})
+	const [error, setError] = React.useState('')
 
 	React.useEffect(() => {
+		setError('')
 		setIsLoading(true)
 		fetchAllMovies()
 			.then(data => setAllMovies(data.movies))
-			.catch(error => {
-				setError(error)
-			})
+			.catch(error => setError(error))
 			.finally(() => setIsLoading(false))
 	}, [])
 
@@ -31,10 +30,12 @@ export default function App() {
 					<Top5 allMovieInfo={allMovies} />
 					<AllMovies allMovieInfo={allMovies} />
 					{isLoading && <h1>loading...</h1>}
+					{error && <ErrorPage/>}
 				</>} />
 				<Route path="/:id" element={<>
 					<MovieInfo setIsLoading={setIsLoading}/>
 					{isLoading && <h1>loading...</h1>}
+					{error && <ErrorPage/>}
 				</>} />
 				<Route path="/error" element={<ErrorPage />} />
 				<Route path="*" element={<ErrorPage />} />
