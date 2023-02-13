@@ -12,11 +12,13 @@ This app will show a variety of movies where a user can select a movie and find 
 
 ### Preview of App:
 
+![alt screenshot](./src/Screenshot%202023-02-13%20at%2012.14.18%20PM.png)
+
 ### Installation Instructions:
 - Fork the repository found here: [RancidTomallios](https://github.com/FayeRosenshein/rancidTomatillos) 
 - Clone down your new, forked repo with `git clone`. 
 - cd into the repository
-- Install NPM packages by running `npm install` in your terminal
+
 - Start the server by running `npm start` in your server  
 
 ### Context:
@@ -44,10 +46,3 @@ Some wins included:
 - Adding a search bar feature at the end of our project
 - Working through the project with React version 6 and Router version 6.
 
-<!-- # FitLit
-
-### Preview of App:
-
-![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/113728354/211416747-be803b67-56af-4163-9578-84e45594eb17.gif)
-
- -->
