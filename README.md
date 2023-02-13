@@ -42,7 +42,7 @@ Some challenges included:
 
 Some wins included:
 - Adding a search bar feature at the end of our project
-- 
+- Working through the project with React version 6 and Router version 6.
 
 <!-- # FitLit
 
@@ -50,15 +50,4 @@ Some wins included:
 
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/113728354/211416747-be803b67-56af-4163-9578-84e45594eb17.gif)
 
-### Wins + Challenges:
-Some challenges included: 
-- Handling inconsitent data, during the first iteration we could expect there to always be a weeks worth of data. In the second iteration the data we were given was much less consitent and lead to the need to refactor a lot of our code related to finding week-long data.
-- Fetching data while utilizing promises. Having to understand JavaScript execution context and the call stack in order to have functions call after the data has already been fetched. 
-- Chart.js, learning how to utilize a third-party extension
-
-Some wins included:
-- Chart.js, we successfully implemented the extension which allowed us to display user data in a meaningful way.
-- Testing in Mocha and Chai, we feel that our tests and test data allowed us to accurately gauge how the code would perform when the website was active
-- Post request! We were able to send information to our API and update the DOM to match that updated data accordingly.  
-- Project board utilization, we successfully utilized the project board tool, the issues tab, and had very positive and meaningful task delegation and communication by using these tools.
  -->
