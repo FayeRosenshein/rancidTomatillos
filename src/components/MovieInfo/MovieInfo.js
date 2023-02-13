@@ -13,24 +13,27 @@ export default function MovieInfo({ setIsLoading, setError }) {
 		setIsLoading(true)
 		fetchSingleMovie(id)
 			.then(data => setSingleMovie(data.movie))
-			.catch(error => {
-				setError(error)
-			})
+			.catch(error => setError(error))
 			.finally(() => setIsLoading(false))
 			// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [id])
 
 	return (
-		<section className='single-movie-info'>
-			<button onClick={() => navigate("/")}>Home</button>
-			<img src={singleMovie.poster_path} alt={singleMovie.title} width={300} />
-			<p>Title: {singleMovie.title}</p>
-			<p>Release Date: {singleMovie.release_date}</p>
-			<p>Summary: {singleMovie.overview}</p>
-			<p>Genres: {singleMovie.genres}</p>
-			<p>Budget: ${singleMovie.budget}</p>
-			<p>Revenue: ${singleMovie.revenue}</p>
-			<p>Average Rating: {singleMovie.average_rating}</p>
+		<section className='single-movie-section'>
+			<article className='movie-info-card' >
+				<img className='movie-info-img' src={singleMovie.poster_path} alt={singleMovie.title} width={300} />
+				<div className='movie-details' >
+					<p className='movie-info-title' > {singleMovie.title}</p>
+					<p className='movie-summary' >{singleMovie.overview}</p>
+					<div className='small-movie-info' >
+						<p>Release Date <hr/> {singleMovie.release_date}</p>
+						<p>Budget <hr/> {`$${Number(singleMovie.budget).toLocaleString()}`}</p>
+						<p>Revenue <hr/> {`$${Number(singleMovie.revenue).toLocaleString()}`}</p>
+						<p>Average Rating <hr/>{singleMovie.average_rating}</p>
+					</div>
+					<button className='home-button' onClick={() => navigate("/")}>Home</button>
+				</div>
+			</article>
 		</section>
 	)
 

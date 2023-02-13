@@ -11,7 +11,7 @@ export default function AllMovies({allMovieInfo, setMovieId}) {
 
 	const moviesCards = allMovieInfo.map(movie => {
 		return (
-			<Link to={`/${movie.id}`} key={movie.title}>
+			<Link to={`/${movie.id}`} key={movie.title} style={{ textDecoration: 'none' }}>
 				<MovieCard
 					key={movie.id}
 					id={movie.id}
@@ -26,7 +26,7 @@ export default function AllMovies({allMovieInfo, setMovieId}) {
 
 	const moviesFiltered = filteredMovies.map(movie => {
 		return (
-			<Link to={`/${movie.id}`} key={movie.title}>
+			<Link to={`/${movie.id}`} key={movie.title} style={{ textDecoration: 'none' }}>
 				<MovieCard
 					key={movie.id}
 					id={movie.id}
@@ -41,8 +41,10 @@ export default function AllMovies({allMovieInfo, setMovieId}) {
 
 	return (
 		<section>
-			<p>All Movies</p>
-			<SearchBar setSearchInput={setSearchInput} searchInput={searchInput}/>
+			<div className='all-movies-nav'>
+				<h2 className='all-movies-title' >All Movies</h2>
+				<SearchBar setSearchInput={setSearchInput} searchInput={searchInput}/>
+			</div>
 			<div className='movie-container'>
 				{searchInput && moviesFiltered}
 				{!searchInput && moviesCards}
